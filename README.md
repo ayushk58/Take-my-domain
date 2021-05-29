@@ -6,6 +6,9 @@ Ever frustated while checking for sub-domain takeover ??
 
 Using SubF1nd3r, You can now get access to the server satus code along with the servers that host the site, which will save you a lot of time by not making you visit each and every sub-domain.
 
+![test](https://user-images.githubusercontent.com/77789017/120081660-9f0de180-c0b6-11eb-9b9c-12c1a4a8477a.png)
+
+
 USAGE:
 
 For enumerating a domain and finding the server status
