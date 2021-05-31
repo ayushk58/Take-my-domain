@@ -81,10 +81,14 @@ def takeover_check(file):
         try:
             status=requests.get(url)
             code=(status.status_code)
-            if(code==404):
-                print(color.R+url+"\t\t\t   "+color.BOLD+str(code)+"\t\t\t\t\t\t"+status.headers['server']+color.END+"\n")
+            if not status.headers.get('Server'):
+            	server_status="Could not find the server"
             else:
-                print(color.G+url+"\t\t\t   "+color.BOLD+str(code)+"\t\t\t\t\t\t"+status.headers['server']+color.END+"\n")
+            	server_status=status.headers.get('Server')
+            if(code==404):
+                print(color.R+url+"\t\t\t   "+color.BOLD+str(code)+"\t\t\t\t\t\t"+server_status+color.END+"\n")
+            else:
+                print(color.G+url+"\t\t\t   "+color.BOLD+str(code)+"\t\t\t\t\t\t"+server_status+color.END+"\n")
         except requests.exceptions.RequestException:
             print(color.Y+url+"\t\t\t   "+color.BOLD+"ERROR"+"\t\t\t\t\t"+"ERROR"+"\n"+color.END)
 
